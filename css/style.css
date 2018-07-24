@@ -1,0 +1,282 @@
+
+.wrapper {
+  max-width: 100%;
+
+}
+body {
+  background: #222;
+  color: white;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  font-size: 85%;
+  line-height: 1.4;
+  margin: 0;
+}
+
+
+.wrapper {
+    max-width: 100%;
+  }
+header {
+  width: 100%;
+  background-color: black;
+  height: 60px;
+  }
+nav, section {
+    float: left;
+    width: 100%; 
+    padding-right:10px;
+ }
+nav {
+  padding-top: 35px;
+  background-color: brown; 
+}
+section {
+  background-color: white;
+}
+
+.search-results-container{
+  max-height: auto;
+  overflow-y: scroll;
+}
+
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+.btnOnewayReturn{
+	padding-right: 4px;
+}
+
+nav{
+	padding-top: 30px;
+	padding-right: 10px;
+}
+
+.form-group {
+	padding-right: 20px;
+}
+ nav, section {
+    float: left;
+    width: 100%; 
+    padding-right:10px;
+  }
+
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+.wrapper {
+    max-width: 100%;
+}
+nav{
+	padding-top: 30px;
+	padding-right: 10px;
+}
+.form-group {
+	padding-right: 20px;
+}
+
+} 
+
+
+
+/***************************************/
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: white; /*white;*/
+  color: #FFF;
+  font-family: Helvetica;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+header {
+  padding: 10px 0;
+  background-color: #202020;
+  height: 60px;
+}
+
+nav {
+   background-color: #180000;  
+   width: 30%;
+   padding-left: 100px;
+   padding-top: auto;
+   overflow: hidden;
+
+ }
+
+section {
+    background-color: white;
+    width: 60%;
+    padding-top: auto;
+}
+
+
+/* ====== form button and text book css ====== */
+.button{
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1.2vw;
+  cursor: pointer;
+  margin:auto;
+  display:block;
+  width: 150px;
+}
+
+.btnOnewayReturn{
+  background-color: #180000; 
+  color: white;
+  text-align: center;
+  font-size: 1.2vw;
+  cursor: pointer;
+  display: inline-block;
+  border: none;
+  width:33.33%; 
+}
+
+.form-group {
+  margin-top: 7px;
+  overflow: hidden; 
+  margin-bottom: 5px;
+}
+
+input[type="text"] , input[type="number"] {
+  height: 25px;
+  width: 220px;
+}  
+
+.btnOnewayReturn:focus{
+  outline: 0;
+}
+.active {
+  color: white;
+  outline: #060607;
+  background-color: #060607;
+}
+
+/* ====== ====== */
+
+.search-bar-container, .search-results-container {
+  height: calc(100vh - 60px);
+}
+
+/* ====== header css start ====== */
+header .plane-logo-heading-container {
+  display: flex;
+  max-width: 20rem;
+  text-transform: uppercase;
+  padding:auto;
+
+}
+header .plane-logo-heading-container > .plane-logo {
+  height: 40px;
+  width: 40px;
+  margin: 6px;
+  margin-left : 118px;
+  margin-top: 0px;
+  padding-bottom: 5px;
+}
+header .plane-logo-heading-container .heading {
+  font-weight: 900;
+  transform: scale(1.34,1.74);
+  margin: 0;
+  padding : 0px;
+}
+header .plane-logo-heading-container > .description {
+  flex: 1;
+  display: block;
+  padding-bottom: 5px;
+}
+
+/* ====== search results css start ====== */
+.search-results-container {
+  width: 70%;
+  float: left;
+  padding: 15px;
+  background: white;
+  color: black;
+}
+
+.search-results-container > .search-results-header {
+  margin-top: 15px;
+  width: 100%;
+  display: inline-flex;
+  box-shadow: 0px 5px 2px -2px grey;
+  padding-bottom: 5px;
+}
+
+.search-results-container > .search-results-header > .source-dest-info {
+  width: 30%;
+  font-size: 24px;
+}
+
+.search-results-container > .search-results-header > .source-dest-info span {
+  padding-left: 20px;
+}
+.search-results-container > .search-results-header > .dept-return-dt-info {
+  width: 70%;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.search-results-container > .search-results-list,
+.search-results-container > .search-results-list > .search-result-card > .search-main-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.search-results-container > .search-results-list > .search-result-card {
+  padding: 10px;
+  border: 1px solid grey;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 12px;
+}
+
+.search-results-container > .search-results-list > .search-result-card > .price {
+  font-weight: bold;
+  text-align: left;
+  font-size: 18px;
+}
+
+.search-results-container > .search-results-list > .search-result-card > .search-main-content {
+  display: inline-flex;
+  width: 100%;
+}
+
+.search-results-container > .search-results-list > .search-result-card > .search-main-content > .dept-flight-details {
+  width: 25%;
+  text-align: left;
+}
+
+.search-results-container > .search-results-list > .search-result-card > .search-main-content > .return-flight-details {
+  width: 25%;
+  text-align: left;
+}
+
+.search-results-container > .search-results-list > .search-result-card > .search-main-content > .actions {
+  width: 50%;
+  text-align: right;
+}
+
+.search-results-container > .search-results-list > .search-result-card > .search-main-content > .actions > .book-button {
+  text-transform: uppercase;
+  background: red;
+  color: white;
+  width: 60%;
+  height: 30px;
+}
+
+/************************************/
