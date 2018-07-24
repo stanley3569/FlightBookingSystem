@@ -1,76 +1,80 @@
 <!DOCTYPE>
 <html>
   <head>
- 	<link rel="stylesheet" type="text/css" href="../css/style.css">
- 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+ 	  <link rel="stylesheet" type="text/css" href="../css/style.css">
+ 	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  	<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
   </head>
+<body>
   <div class="wrapper">
-  
-  <header>
-    <div class="plane-logo-heading-container ">
-      <img class="plane-logo" src="../images/airplane.jpg" alt="Plane homepage">
-      <div>
-        <h2 class="heading">flight</h2>
-        <span class="description">Search Engine</span>
-      </div>
-    </div>
-  </header>
-  
-  <nav class="search-bar-container">
-    <div class="search">
-        <div class="tab">
-          <button class="btnOnewayReturn" onclick="switchtab(1);">One way</button>
-          <button class="btnOnewayReturn" onclick="switchtab(2);">Return</button>
+    <header>
+      <div class="plane-logo-heading-container">
+        <img class="plane-logo" src="../images/airplane.jpg" alt="Plane homepage">
+        <div class="head">
+          <h2 class="heading">flight</h2>
+          <span class="description">Search Engine</span>
         </div>
-      
-        <form id="formSearchFlight" action="/" method="post">
-          <div class="form-group">
-            <input type="text" placeholder="Enter Origin" class="form-control" name ="origin" id="origin" required>
-          </div>
-          <div class="form-group">
-            <input type="text" placeholder="Enter Destination" class="form-control" id="destination" required>
-          </div>
-          <div class="form-group">
-            <input id="depatureDate" type="text" placeholder="Departure Date" class="form-control" required>
-          </div>
-          <div id="divReturnDate" class="form-group" style="display: none;">
-            <input id="returnDate" type="text" placeholder="Return Date" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <input type="number" placeholder="Passengers" min="1" max="unbounded" id=passengers>
-          </div>
-          <input id="btnSearch" class="button" type="button" value="Search">
-        </form>
-    </div>
-  </nav>
-  
-  <div class="search-results-container">
-    <div class="search-results-header">
-      <div class="source-dest-info">
-        <span id="spanSourceDestination"></span>
       </div>
-      <div class="dept-return-dt-info">
-        <span id="spanDepatureDate"></span> 
-        <br>
-        <span id="spanReturnDate"></span>
+    </header>
+    
+    <nav class="search-bar-container">
+      <div class="search">
+          <div class="tab">
+            <button class="btnOnewayReturn active" onclick="switchtab(1);">One way</button>
+            <button class="btnOnewayReturn" onclick="switchtab(2);">Return</button>
+          </div>
+        
+          <form id="formSearchFlight" action="/" method="post">
+            <div class="form-group">
+              <input type="text" placeholder="Enter Origin" class="form-control" name ="origin" id="origin" required>
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Enter Destination" class="form-control" id="destination" required>
+            </div>
+            <div class="form-group">
+              <input id="depatureDate" type="text" placeholder="Departure Date" class="form-control" required>
+            </div>
+            <div id="divReturnDate" class="form-group hide">
+              <input id="returnDate" type="text" placeholder="Return Date" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <input type="number" placeholder="Passengers" min="1" max="unbounded" id=passengers>
+            </div>
+            <input id="btnSearch" class="button m-t-12" type="button" value="SEARCH">
+          </form>
       </div>
+    </nav>
+    
+    <div class="search-results-container">
+      <div class="search-results-header">
+        <div class="source-dest-info">
+          <span id="spanSourceDestination"></span>
+        </div>
+        <div class="dept-return-dt-info">
+          <span id="spanDepatureDate"></span> 
+          <br>
+          <span id="spanReturnDate"></span>
+        </div>
+      </div>  
+      <hr style="width: 78%;margin-left: 11px;margin-top: 28px;"></hr>
+      <ul id="search-results" class="search-results-list">
+
+      </ul>
     </div>
-    <ul id="search-results" class="search-results-list">
-    </ul>
-  </div>
-  
-  
   </div>
   <script>
 		$(document).ready(function(){
 			$('#depatureDate').datepicker({
         dateFormat: 'yy-mm-dd'
       });
+
+      $('#returnDate').datepicker({
+        dateFormat: 'yy-mm-dd'
+      });
     });
 	</script>
-</html
+</body>
+</html>

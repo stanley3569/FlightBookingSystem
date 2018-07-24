@@ -1,9 +1,7 @@
 $(function() {  
   $('#btnSearch').click(function() {
-    
     //validate form
     if($('#formSearchFlight').valid()){
-      
       $.ajax({
         url: 'http://localhost/TenTwenty/UI_Assignment_Flight_Data.json',
         dataType: 'json',
@@ -26,11 +24,11 @@ $(function() {
 
 function formatData(arr){
   //Set Origin to destination title
-  $('#spanSourceDestination').html('<span>'+ $('#origin').val() +'</span><span>></span><span>'+ $('#destination').val() +'</span>');
+  $('#spanSourceDestination').html($('#origin').val() +'&nbsp;&nbsp;>&nbsp;&nbsp;'+ $('#destination').val());
 
   //Set travel date
   var depatureDate = new Date($('#depatureDate').val());
-  $('#spanDepatureDate').html('Depart: '+ depatureDate.toShortFormat());
+  $('#spanDepatureDate').html('Depart : '+ depatureDate.toShortFormat());
 
   var arrFlight = [];
   var originCityCode = getCityCode($('#origin').val());
@@ -54,27 +52,31 @@ function formatData(arr){
   }
 
   var result= '';  
-  for (var i = 0; i < arrFlight.length; i++) {
+  if(arrFlight.length == 0){
+    result = '<li class="search-result-card"><strong>No Results found</strong></li>';
+  }else{
+    for (var i = 0; i < arrFlight.length; i++) {
       var departureDate = new Date(arrFlight[i].departure);
       var arriveDate = new Date(arrFlight[i].arrival);
 
       result += '<li class="search-result-card">'+                  
-                '<div class="price">Rs. ' + arrFlight[i].price + '</div>'+ 
+                '<div class="price">Rs ' + arrFlight[i].price + '</div>'+ 
                   '<div class="search-main-content">'+ 
                     '<ul class="dept-flight-details">'+ 
                       '<li>'+ arrFlight[i].airlineCode +'</li>'+ 
                       '<li>'+ arrFlight[i].origin +' > '+ arrFlight[i].destination +'</li>'+ 
-                      '<li>Depart: '+ departureDate.getHours() +'.'+ departureDate.getMinutes() +'</li>'+ 
-                      '<li>Arrive: '+ arriveDate.getHours() +'.'+ arriveDate.getMinutes() +'</li>'+ 
+                      '<li>Depart : '+ departureDate.getHours() +'.'+ departureDate.getMinutes() +'</li>'+ 
+                      '<li>Arrive : '+ arriveDate.getHours() +'.'+ arriveDate.getMinutes() +'</li>'+ 
                     '</ul>'+ 
                     '<div class="actions">'+ 
                       '<button class="book-button">book this flight</button>'+ 
                     '</div>'+ 
                   '</div>'+ 
                 '</li>';  
+    }
   }
-  
-  $('#search-results').html(result);
+  $('#search-results').css('display','none').html(result).fadeIn(1000);
+
 }
 
 Date.prototype.toShortFormat = function() {
@@ -111,16 +113,16 @@ function resetData(){
 
 function switchtab(type){
   if(type == 1){
-    $('#divReturnDate').hide();
+    $('#divReturnDate').addClass('hide');
   }else if(type == 2){
-    $('#divReturnDate').show();
+    $('#divReturnDate').removeClass('hide');
   }
 }
 
 
 $(document).ready(function(){
-        $('.btnOnewayReturn').click(function () {
-            $('.active').removeClass("active");
-            $(this).addClass("active");
-        })
-    });
+    $('.btnOnewayReturn').click(function () {
+        $('.active').removeClass("active");
+        $(this).addClass("active");
+    })
+});
